@@ -31,6 +31,6 @@ var j=1;
         });
       });
 const adduser=()=>{
-  console.log("hello")
+  
 }
 
