@@ -220,20 +220,20 @@
             <div class="modal-body">
                 <div class="col-md-6 col-12">
                     <div class="form-label-group">
-                        <input type="text" id="addon" class="form-control" name="addon" placeholder="Username">
+                        <input type="text" id="user-name" class="form-control" name="addon" placeholder="Username">
                         <label for="email-id-column">User name</label>
                     </div>
                 </div>
                 <div class="col-md-6 col-12">
                     <div class="form-label-group">
-                        <input type="number" id="addon" class="form-control" name="addon" placeholder="Phone number">
-                        <label for="email-id-column">Phone </label>
+                        <input type="number" id="phone-number" class="form-control" name="addon" placeholder="Phone number">
+                        <label for="number-id-column">Phone </label>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-              <button type="button" class="btn btn-primary">Add User</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal" onclick={adduser()}>Add User</button>
             </div>
           </div>
         </div>

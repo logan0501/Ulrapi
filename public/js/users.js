@@ -14,23 +14,31 @@ var database = firebase.firestore();
 var users = database.collection("user");
 const usertable = document.querySelector("#users");
 const venders = [];
-var j=1;
-      var user = users.get().then((snapshot) => {
-        snapshot.forEach((doc) => {
-            console.log(doc.data());
-          venders.push(doc.data());
-          usertable.innerHTML +=
-            "<tr><td>" +
-            j +
-            "</td><td>" +
-            doc.data().name +
-            "</td><td>" +
-            doc.data().phone +
-            "</td><td></td></tr>";
-          j++;
-        });
-      });
-const adduser=()=>{
-  
-}
+var j = 1;
+var user = users.get().then((snapshot) => {
+  snapshot.forEach((doc) => {
+    console.log(doc.data());
+    venders.push(doc.data());
+    usertable.innerHTML +=
+      "<tr><td>" +
+      j +
+      "</td><td>" +
+      doc.data().name +
+      "</td><td>" +
+      doc.data().phone +
+      "</td><td></td></tr>";
+    j++;
+  });
+});
 
+const adduser = async() => {
+  var username = document.getElementById("user-name").value;
+  var phonenumber = document.getElementById("phone-number").value;
+  if (phonenumber.length != 10) {
+    alert("phone number is not valid");
+  } else {
+    await database
+      .collection("user")
+      .add({ "name": username, "phone": phonenumber });
+  }
+};
